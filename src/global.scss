@@ -1,9 +1,3 @@
-@media (prefers-color-scheme: dark) {
-  /*
-   * Dark Colors
-   * -------------------------------------------
-   */
-  
   body {
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
@@ -148,4 +142,30 @@
   ion-title.title-large {
     --color: white;
   }
+
+
+ion-tab-bar {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--ion-color-medium-shade);
+  border-top: 2px solid var(--ion-color-dark);
+}
+
+ion-tab-button {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-items: center;
+
+  
+  ion-icon {
+    font-size: 2rem;
+    color: var(--ion-color-primary-contrast);
+  }
+}
+
+ion-content{
+  --ion-background-color: var(--ion-color-dark-shade);
 }

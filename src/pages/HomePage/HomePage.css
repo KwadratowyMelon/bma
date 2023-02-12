@@ -1,0 +1,45 @@
+.homepage-container {
+    height: 100%;
+    background-color: var(--ion-color-dark-shade);
+}
+
+.homepage-daily-tasks{
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.homepage-header {
+    height: 10vh;
+    border: 1px solid var(--ion-color-dark); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: var(--ion-color-medium-tint);
+}
+
+.daily-tasks-title {
+    font-size: 2rem;
+
+}
+
+ion-list{
+    height: 30vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+}
+
+ion-item{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1.5rem;
+}
+

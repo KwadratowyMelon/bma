@@ -3,18 +3,19 @@ import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
-  IonLabel,
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs,
+  IonHeader,
+  IonLabel,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { square, triangle, images } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
-import Details from './pages/Details';
+import { home, invertMode, barbell, trophy } from 'ionicons/icons';
+import AchievementsPage from './pages/Achievements/Avhievements';
+import Meditate from './pages/Meditate/Meditate';
+import Summary from './pages/Summary/Summary';
+import HomePage from './pages/HomePage/HomePage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,31 +37,39 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 /* Global CSS */
-import './global.css';
+import './global.scss';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/tab1" component={Tab1} exact={true} />
-          <Route path="/tab2" component={Tab2} exact={true} />
-          <Route path="/tab2/details" component={Details} />
-          <Route path="/tab3" component={Tab3} />
-          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+            <Redirect exact path="/" to="/home" />
+            {/*
+            Use the render method to reduce the number of renders your component will have due to a route change.
+
+            Use the component prop when your component depends on the RouterComponentProps passed in automatically.
+          */}
+            <Route path="/home" render={() => <HomePage />} exact={true} />
+            <Route path="/summary" render={() => <Summary />} exact={true} />
+            <Route path="/meditate" render={() => <Meditate />} exact={true} />
+            <Route path="/achievements" render={() => <AchievementsPage />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab One</IonLabel>
+          <IonTabButton tab="home" href="/home">
+            <IonIcon icon={home} />
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={images} />
-            <IonLabel>Photos</IonLabel>
+
+          <IonTabButton tab="mediate" href="/meditate">
+            <IonIcon icon={invertMode} />
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab Three</IonLabel>
+
+          <IonTabButton tab="summary" href="/summary">
+            <IonIcon icon={barbell} />
+          </IonTabButton>
+
+          <IonTabButton tab="achievements" href="/achievements">
+            <IonIcon icon={trophy} />
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
